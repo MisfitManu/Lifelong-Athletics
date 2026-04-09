@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- ============================================================
+  STEP 1: Change this title to your article title
+  ============================================================ -->
+<title>YOUR ARTICLE TITLE — Lifelong Athletics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black: #080808;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --gold: #c9a84c;
+    --white: #f5f0e8;
+    --muted: rgba(245,240,232,0.45);
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 60px;
+    background: rgba(8,8,8,0.97);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold) !important;
+    border: 1px solid var(--gold);
+    padding: 10px 24px;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
+
+  /* BACK LINK */
+  .back-bar {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 110px 40px 0;
+  }
+  .back-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  /* ARTICLE HEADER */
+  .article-header {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.1s forwards;
+  }
+  .article-category {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .article-title em { font-style: italic; color: var(--gold); }
+  .article-subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    font-style: italic;
+    font-family: var(--font-display);
+  }
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .meta-divider { width: 1px; height: 12px; background: var(--border); }
+  .meta-author { color: var(--white); }
+
+  /* ARTICLE BODY */
+  .article-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.3s forwards;
+  }
+
+  /* All the typography you need for writing */
+  .article-body p {
+    font-size: 1rem;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.85;
+    margin-bottom: 28px;
+  }
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: var(--white);
+    margin: 56px 0 20px;
+    padding-top: 56px;
+    border-top: 1px solid var(--border);
+    line-height: 1.2;
+  }
+  .article-body h2 em { font-style: italic; color: var(--gold); }
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white);
+    margin: 36px 0 16px;
+  }
+  .article-body strong {
+    font-weight: 500;
+    color: var(--white);
+  }
+  .article-body em {
+    font-style: italic;
+    color: rgba(245,240,232,0.7);
+  }
+  .article-body ul, .article-body ol {
+    margin: 0 0 28px 24px;
+    color: rgba(245,240,232,0.8);
+  }
+  .article-body li {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+  .article-body ul li::marker { color: var(--gold); }
+  .article-body ol li::marker { color: var(--gold); font-family: var(--font-display); }
+
+  /* Callout / highlight box */
+  .callout {
+    background: var(--surface);
+    border-left: 3px solid var(--gold);
+    padding: 24px 28px;
+    margin: 36px 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .callout p {
+    margin: 0 !important;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--white) !important;
+    line-height: 1.6;
+  }
+
+  /* Key takeaway box */
+  .takeaway {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 28px 32px;
+    margin: 40px 0;
+    border-radius: 2px;
+  }
+  .takeaway-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .takeaway p {
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+    color: rgba(245,240,232,0.85) !important;
+  }
+
+  /* Divider */
+  .section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+    margin: 48px 0;
+  }
+
+  /* CTA BOX at end of article */
+  .article-cta {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
+    padding: 40px;
+    margin-top: 60px;
+    text-align: center;
+    border-radius: 2px;
+  }
+  .article-cta p {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--white) !important;
+    margin-bottom: 8px !important;
+  }
+  .article-cta span {
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 24px;
+  }
+  .btn-gold {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .btn-gold:hover { opacity: 0.88; }
+
+  /* RELATED POSTS */
+  .related-section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+    border-top: 1px solid var(--border);
+    padding-top: 60px;
+  }
+  .related-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .related-card {
+    background: var(--surface);
+    padding: 28px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: background 0.2s;
+  }
+  .related-card:hover { background: var(--surface2); }
+  .related-cat {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .related-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .related-arrow { font-size: 0.8rem; color: var(--gold); margin-top: 8px; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy { font-size: 0.75rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .back-bar { padding: 100px 24px 0; }
+    .article-header, .article-body, .related-section { padding-left: 24px; padding-right: 24px; }
+    .related-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-logo">Lifelong <span>Athletics</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html#method">The Method</a></li>
+    <li><a href="../index.html#who">Who It's For</a></li>
+    <li><a href="../index.html#services">Services</a></li>
+    <li><a href="../blog.html" class="active">Blog</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#apply" class="nav-cta">Apply Now</a></li>
+  </ul>
+</nav>
+
+<!-- BACK LINK -->
+<div class="back-bar">
+  <a href="../blog.html" class="back-link">← Back to all articles</a>
+</div>
+
+<!-- ============================================================
+  ARTICLE HEADER
+  STEP 2: Fill in category, title, subtitle, date, read time
+  ============================================================ -->
+<header class="article-header">
+  <p class="article-category">Exercise Science</p><!-- CHANGE CATEGORY -->
+  <h1 class="article-title">Your Article Title Goes <em>Here</em></h1>
+  <p class="article-subtitle">A one or two sentence summary that draws the reader in. Make it specific and intriguing.</p>
+  <div class="article-meta">
+    <span class="meta-author">Manu</span>
+    <div class="meta-divider"></div>
+    <span>April 2025</span><!-- CHANGE DATE -->
+    <div class="meta-divider"></div>
+    <span>6 min read</span><!-- CHANGE READ TIME -->
+  </div>
+</header>
+
+<!-- ============================================================
+  ARTICLE BODY
+  STEP 3: Write your article below.
+  Use the elements shown — p, h2, h3, ul, callout, takeaway
+  Delete the example content and replace with your own.
+  ============================================================ -->
+<article class="article-body">
+
+  <p>This is your opening paragraph. Start strong — hook the reader immediately with a surprising fact, a common misconception, or a direct statement of what they're going to learn. Don't ease in slowly. Get to the point.</p>
+
+  <p>This is your second paragraph. Expand on the opening. Give context. Why does this topic matter? Who is it relevant to? Keep sentences short and punchy.</p>
+
+  <!-- CALLOUT: use for important quotes or key statements -->
+  <div class="callout">
+    <p>"This is a callout box — use it for a key insight, a striking stat, or a memorable one-liner that you want to stand out."</p>
+  </div>
+
+  <!-- SECTION HEADING -->
+  <h2>Your First Section <em>Heading</em></h2>
+
+  <p>This is the body text under your first section. Write in short paragraphs — 3 to 5 sentences max. Your reader is on a phone or taking a break. Make it easy to consume.</p>
+
+  <p>Add another paragraph here. Go deeper into the point. Use plain language — you're not writing a textbook. You're explaining science to someone who wants to understand it, not memorise it.</p>
+
+  <!-- BULLET LIST -->
+  <ul>
+    <li>First point — keep each item to one clear sentence</li>
+    <li>Second point — start with a verb when possible</li>
+    <li>Third point — make each item stand on its own</li>
+    <li>Fourth point — 3 to 5 items is ideal, more than 6 loses attention</li>
+  </ul>
+
+  <div class="section-divider"></div>
+
+  <h2>Your Second Section <em>Heading</em></h2>
+
+  <p>Keep writing. Another 2-3 paragraphs here. Remember — each section should answer one question or make one point clearly.</p>
+
+  <h3>A Subheading If You Need One</h3>
+
+  <p>Use h3 when a section has multiple distinct parts that need their own label. Don't overuse — only when the reader genuinely needs a signpost.</p>
+
+  <!-- TAKEAWAY BOX: use at the end of a major section -->
+  <div class="takeaway">
+    <span class="takeaway-label">Key Takeaway</span>
+    <p>Summarise the most important point of this section in 1-2 sentences. What should the reader remember and apply?</p>
+  </div>
+
+  <h2>Your Third Section <em>Heading</em></h2>
+
+  <p>Continue writing. Aim for 800–1200 words total for a solid blog post. Under 600 feels thin. Over 1500 needs to be truly exceptional to hold attention.</p>
+
+  <p>End this section with a clear transition toward your conclusion. What should the reader do with this information?</p>
+
+  <!-- NUMBERED LIST -->
+  <ol>
+    <li>First step or first reason — be specific</li>
+    <li>Second step or second reason</li>
+    <li>Third step or third reason</li>
+  </ol>
+
+  <!-- CLOSING PARAGRAPH -->
+  <p>Your closing paragraph. Bring it back to the reader — what's the one thing they should take away and act on? End with something that resonates, not just "hope this helped."</p>
+
+  <!-- CTA BOX — this appears at the end of every article automatically -->
+  <div class="article-cta">
+    <p>Want coaching built around your body?</p>
+    <span>Science-backed. Personalised. Built for life.</span>
+    <a href="../index.html#apply" class="btn-gold">Apply for Coaching →</a>
+  </div>
+
+</article>
+
+<!-- ============================================================
+  RELATED POSTS
+  STEP 4: Update these 2 links to point to relevant articles
+  ============================================================ -->
+<div class="related-section">
+  <p class="related-label">Continue Reading</p>
+  <div class="related-grid">
+    <a href="habit-science.html" class="related-card">
+      <span class="related-cat">Behaviour Change</span>
+      <span class="related-title">The Science of Habit Formation — Why Motivation Is a Terrible Strategy</span>
+      <span class="related-arrow">→</span>
+    </a>
+    <a href="desk-job-posture.html" class="related-card">
+      <span class="related-cat">Mobility & Pain</span>
+      <span class="related-title">What 8 Hours at a Desk Does to Your Body — And How to Undo It</span>
+      <span class="related-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="../index.html" class="footer-logo">Lifelong <span>Athletics</span></a>
+  <p class="footer-copy">© 2025 Lifelong Athletics. Chandigarh, India.</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">YouTube</a>
+    <a href="#">WhatsApp</a>
+  </div>
+</footer>
+
+</body>
+</html>

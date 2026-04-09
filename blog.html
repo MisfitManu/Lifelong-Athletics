@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog — Lifelong Athletics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black: #080808;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --gold: #c9a84c;
+    --white: #f5f0e8;
+    --muted: rgba(245,240,232,0.45);
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 60px;
+    background: rgba(8,8,8,0.97);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a.active { color: var(--gold); }
+  .nav-cta {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold) !important;
+    border: 1px solid var(--gold);
+    padding: 10px 24px;
+    border-radius: 2px;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
+
+  /* HERO */
+  .blog-hero {
+    padding: 160px 60px 80px;
+    border-bottom: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .blog-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.3s forwards;
+  }
+  .blog-hero h1 em { font-style: italic; color: var(--gold); }
+  .blog-hero p {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.4s forwards;
+  }
+
+  /* CATEGORY FILTER */
+  .filter-bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 60px 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+  .filter-btn {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+  .filter-btn.active { color: var(--gold); border-color: var(--gold); }
+
+  /* FEATURED POST */
+  .featured-wrap {
+    max-width: 1100px;
+    margin: 48px auto 0;
+    padding: 0 60px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.6s forwards;
+  }
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color 0.3s;
+  }
+  .featured-post:hover { border-color: rgba(201,168,76,0.4); }
+  .featured-img {
+    background: var(--surface2);
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-img-placeholder {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--surface2) 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .featured-img svg { opacity: 0.15; }
+  .featured-badge {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+  .featured-content {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .post-category {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .post-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .post-excerpt {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 32px;
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .post-date {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .read-more {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.2s;
+  }
+  .featured-post:hover .read-more { gap: 14px; }
+
+  /* POST GRID */
+  .posts-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 60px 120px;
+  }
+  .posts-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  .post-card {
+    background: var(--surface);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+  }
+  .post-card:hover::before { transform: scaleX(1); }
+  .post-card:hover { background: var(--surface2); }
+  .post-card.visible { opacity: 1; transform: translateY(0); }
+  .card-img {
+    height: 180px;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .card-img svg { opacity: 0.12; }
+  .card-body { padding: 32px 28px; flex: 1; display: flex; flex-direction: column; }
+  .card-category {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 12px;
+    flex: 1;
+  }
+  .card-excerpt {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .card-date { font-size: 0.72rem; color: var(--muted); }
+  .card-arrow {
+    font-size: 0.8rem;
+    color: var(--gold);
+    transition: transform 0.2s;
+  }
+  .post-card:hover .card-arrow { transform: translateX(4px); }
+
+  /* EMPTY STATE — shown when no more posts yet */
+  .coming-soon {
+    background: var(--surface);
+    border: 1px dashed rgba(201,168,76,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 28px;
+    text-align: center;
+    gap: 12px;
+  }
+  .coming-soon span {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-copy { font-size: 0.75rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    .blog-hero { padding: 120px 24px 60px; }
+    .filter-bar { padding: 32px 24px 0; }
+    .featured-wrap { padding: 32px 24px 0; }
+    .featured-post { grid-template-columns: 1fr; }
+    .featured-img { min-height: 200px; }
+    .featured-content { padding: 28px; }
+    .posts-section { padding: 40px 24px 80px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Lifelong <span>Athletics</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#method">The Method</a></li>
+    <li><a href="index.html#who">Who It's For</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#apply" class="nav-cta">Apply Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <p class="eyebrow">The Lifelong Athletics Journal</p>
+  <h1>Movement.<br/>Science.<br/><em>For life.</em></h1>
+  <p>Evidence-based articles on exercise science, behaviour change, mobility, and building a body that performs for decades — not just seasons.</p>
+</div>
+
+<!-- CATEGORY FILTER -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterPosts('all', this)">All</button>
+  <button class="filter-btn" onclick="filterPosts('exercise-science', this)">Exercise Science</button>
+  <button class="filter-btn" onclick="filterPosts('behaviour-change', this)">Behaviour Change</button>
+  <button class="filter-btn" onclick="filterPosts('mobility', this)">Mobility & Pain</button>
+  <button class="filter-btn" onclick="filterPosts('nutrition', this)">Nutrition</button>
+  <button class="filter-btn" onclick="filterPosts('longevity', this)">Longevity</button>
+  <button class="filter-btn" onclick="filterPosts('performance', this)">Performance</button>
+</div>
+
+<!-- FEATURED POST -->
+<div class="featured-wrap">
+  <a href="blog/why-your-squat-hurts.html" class="featured-post" data-category="exercise-science">
+    <div class="featured-img">
+      <div class="featured-img-placeholder">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+          <circle cx="60" cy="60" r="50" stroke="#c9a84c" stroke-width="1"/>
+          <circle cx="60" cy="60" r="35" stroke="#c9a84c" stroke-width="0.5"/>
+          <line x1="60" y1="20" x2="60" y2="100" stroke="#c9a84c" stroke-width="0.5"/>
+          <line x1="20" y1="60" x2="100" y2="60" stroke="#c9a84c" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <span class="featured-badge">Featured</span>
+    </div>
+    <div class="featured-content">
+      <div>
+        <p class="post-category">Exercise Science</p>
+        <h2 class="post-title">Why Your Squat Hurts — And What's Actually Going On in Your Knee</h2>
+        <p class="post-excerpt">Most people blame the squat. The squat isn't the problem. Here's a breakdown of the biomechanics behind knee pain during squatting — and the three movement faults that cause 90% of cases.</p>
+      </div>
+      <div class="post-meta">
+        <span class="post-date">April 2025 · 6 min read</span>
+        <span class="read-more">Read Article →</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+<!-- POST GRID -->
+<div class="posts-section">
+  <p class="posts-label">All Articles</p>
+  <div class="posts-grid" id="postsGrid">
+
+    <!-- POST 1 -->
+    <a href="blog/why-your-squat-hurts.html" class="post-card" data-category="exercise-science">
+      <div class="card-img">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect x="10" y="50" width="8" height="20" fill="#c9a84c" rx="1"/>
+          <rect x="22" y="38" width="8" height="32" fill="#c9a84c" rx="1"/>
+          <rect x="34" y="28" width="8" height="42" fill="#c9a84c" rx="1"/>
+          <rect x="46" y="18" width="8" height="52" fill="#c9a84c" rx="1"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Exercise Science</p>
+        <h3 class="card-title">Why Your Squat Hurts — And What's Actually Going On</h3>
+        <p class="card-excerpt">Biomechanics breakdown of the three movement faults that cause 90% of knee pain during squats.</p>
+        <div class="card-footer">
+          <span class="card-date">April 2025 · 6 min</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- POST 2 -->
+    <a href="blog/habit-science.html" class="post-card" data-category="behaviour-change">
+      <div class="card-img">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <path d="M40 15 A25 25 0 1 1 15.5 52" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M13 48 L15.5 52 L19 49" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="40" cy="40" r="5" fill="rgba(201,168,76,0.5)"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Behaviour Change</p>
+        <h3 class="card-title">The Science of Habit Formation — Why Motivation Is a Terrible Strategy</h3>
+        <p class="card-excerpt">BJ Fogg's Tiny Habits model explained — and why building "happy habits" beats relying on willpower every time.</p>
+        <div class="card-footer">
+          <span class="card-date">April 2025 · 5 min</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- POST 3 -->
+    <a href="blog/desk-job-posture.html" class="post-card" data-category="mobility">
+      <div class="card-img">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="20" r="8" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+          <path d="M40 28 Q36 44 38 55" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <line x1="38" y1="40" x2="24" y2="48" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="39" y1="42" x2="54" y2="36" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="38" y1="55" x2="28" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="38" y1="55" x2="50" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="54" cy="44" r="6" stroke="rgba(201,168,76,0.6)" stroke-width="1" fill="none"/>
+          <circle cx="54" cy="44" r="10" stroke="rgba(201,168,76,0.25)" stroke-width="0.8" fill="none"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <p class="card-category">Mobility & Pain</p>
+        <h3 class="card-title">What 8 Hours at a Desk Does to Your Body — And How to Undo It</h3>
+        <p class="card-excerpt">The kinetic chain consequences of prolonged sitting — and a 10-minute daily routine to reverse the damage.</p>
+        <div class="card-footer">
+          <span class="card-date">April 2025 · 7 min</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- COMING SOON SLOTS -->
+    <div class="coming-soon" data-category="placeholder">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+        <line x1="16" y1="10" x2="16" y2="16" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="16" cy="20" r="1.5" fill="rgba(201,168,76,0.4)"/>
+      </svg>
+      <span>More coming soon</span>
+    </div>
+    <div class="coming-soon" data-category="placeholder">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+        <line x1="16" y1="10" x2="16" y2="16" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="16" cy="20" r="1.5" fill="rgba(201,168,76,0.4)"/>
+      </svg>
+      <span>More coming soon</span>
+    </div>
+    <div class="coming-soon" data-category="placeholder">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="13" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+        <line x1="16" y1="10" x2="16" y2="16" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="16" cy="20" r="1.5" fill="rgba(201,168,76,0.4)"/>
+      </svg>
+      <span>More coming soon</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">Lifelong <span>Athletics</span></a>
+  <p class="footer-copy">© 2025 Lifelong Athletics. Chandigarh, India.</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">YouTube</a>
+    <a href="#">WhatsApp</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.post-card').forEach(el => observer.observe(el));
+
+  // Category filter
+  function filterPosts(category, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.post-card, .coming-soon').forEach(card => {
+      if (category === 'all') {
+        card.style.display = '';
+      } else {
+        const cat = card.getAttribute('data-category');
+        card.style.display = (cat === category || cat === 'placeholder') ? '' : 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>

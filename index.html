@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,7 +76,7 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 28px;
     list-style: none;
   }
   .nav-links a {
@@ -693,10 +694,12 @@
 <nav id="navbar">
   <a href="#" class="nav-logo">Lifelong <span>Athletics</span></a>
   <ul class="nav-links">
-    <li><a href="#method">The Method</a></li>
-    <li><a href="#who">Who It's For</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#longevity">Longevity</a></li>
+    <li><a href="#method">The Method</a></li>
+    <li><a href="#who">Who It's For</a></li>
+    <li><a href="blog.html">Education</a></li>
+    <li><a href="exam-prep.html">Exam Prep</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#apply" class="nav-cta">Apply Now</a></li>
   </ul>
@@ -705,318 +708,62 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
-  <p class="hero-eyebrow">Science-backed fitness coaching · Chandigarh & Online</p>
-  <div class="hero-line"></div>
   <h1>Become a<br/><em>Lifelong</em><br/>Athlete.</h1>
   <p class="hero-sub">Rebuild Habits for Life. Not for a season.</p>
-  <div class="hero-actions" style="justify-content:center">
-    <a href="#apply" class="btn-primary">Apply for Coaching</a>
+  <div class="hero-actions" style="justify-content:center;flex-direction:column;align-items:center;gap:12px">
+    <a href="#apply" class="btn-primary" style="padding:18px 48px">Get a Free Assessment</a>
+    <span style="font-size:0.75rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase">(Know Your Starting Point)</span>
   </div>
 </section>
 
-<!-- PROBLEM STRIP -->
-<section id="problem">
-  <div class="stats-row">
-    <div class="stat-item">
-      <div class="stat-num">81%</div>
-      <div class="stat-desc">of people who join a gym quit within the first year — most without ever understanding why.</div>
-    </div>
-    <div class="stat-item" style="transition-delay:0.15s">
-      <div class="stat-num">47%</div>
-      <div class="stat-desc">of Indians above 40 report persistent joint pain — yet most never get proper movement coaching.</div>
-    </div>
-    <div class="stat-item" style="transition-delay:0.3s">
-      <div class="stat-num">93%</div>
-      <div class="stat-desc">of gym-goers have never been coached on behaviour design. They rely on motivation — which always runs out.</div>
-    </div>
-  </div>
-</section>
-
-<!-- METHOD -->
-<section id="method">
-  <div class="container">
-    <div class="method-layout">
-      <div class="method-sticky">
-        <p class="section-eyebrow">The methodology</p>
-        <h2>Three pillars.<br/>One <em>framework.</em></h2>
-        <p class="section-body" style="margin-top:24px">Most trainers give you workouts. Lifelong Athletics gives you a system — built on exercise science, behavioral psychology, and movement mechanics.</p>
-      </div>
-      <div class="pillars">
-        <div class="pillar">
-          <svg class="pillar-visual" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="28" r="20" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-            <path d="M18 28 Q23 18 28 22 Q33 26 38 16" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <circle cx="28" cy="14" r="3" fill="rgba(201,168,76,0.6)"/>
-            <line x1="20" y1="36" x2="36" y2="36" stroke="rgba(201,168,76,0.3)" stroke-width="1" stroke-linecap="round"/>
-            <line x1="20" y1="41" x2="32" y2="41" stroke="rgba(201,168,76,0.2)" stroke-width="1" stroke-linecap="round"/>
-          </svg>
-          <div class="pillar-num">01</div>
-          <h3 class="pillar-title">Education</h3>
-          <p class="pillar-body">You don't just follow a plan — you understand it. Why this exercise. Why this load. Why this sequence. When you understand the science behind your training, you stop needing a trainer to make every decision. That's the goal.</p>
-        </div>
-        <div class="pillar" style="transition-delay:0.15s">
-          <svg class="pillar-visual" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="28" r="20" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-            <path d="M28 12 A16 16 0 1 1 12.5 36" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <path d="M10 32 L12.5 36 L16 33" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <circle cx="28" cy="28" r="3" fill="rgba(201,168,76,0.6)"/>
-          </svg>
-          <div class="pillar-num">02</div>
-          <h3 class="pillar-title">Behavior Change</h3>
-          <p class="pillar-body">Information alone doesn't change behavior — and that's why most programs fail. Using proven frameworks from behavioral science, we build "happy habits" — sustainable routines that fit your life rather than fight it. Consistency stops being a willpower battle.</p>
-        </div>
-        <div class="pillar" style="transition-delay:0.3s">
-          <svg class="pillar-visual" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="28" r="20" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
-            <rect x="16" y="38" width="5" height="8" fill="rgba(201,168,76,0.3)" rx="1"/>
-            <rect x="23" y="32" width="5" height="14" fill="rgba(201,168,76,0.5)" rx="1"/>
-            <rect x="30" y="25" width="5" height="21" fill="rgba(201,168,76,0.75)" rx="1"/>
-            <rect x="37" y="18" width="5" height="28" fill="#c9a84c" rx="1"/>
-            <path d="M14 36 L22 18" stroke="rgba(201,168,76,0.4)" stroke-width="1" stroke-linecap="round" stroke-dasharray="2 2"/>
-          </svg>
-          <div class="pillar-num">03</div>
-          <h3 class="pillar-title">Physical Training</h3>
-          <p class="pillar-body">Safe. Effective. Built for your body. Whether you're starting from zero or recovering from injury, every program is grounded in movement science — load management, tissue tolerance, and progressive overload. No guesswork. No shortcuts.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHO IS THIS FOR -->
-<section id="who">
-  <div class="container">
-    <div class="who-header">
-      <div>
-        <p class="section-eyebrow">Who this is for</p>
-        <h2>Three kinds of people.<br/><em>Programs for each.</em></h2>
-      </div>
-      <p class="section-body">Most fitness programs are built for one imaginary person. Lifelong Athletics starts with who you actually are — and builds from there.</p>
-    </div>
-    <div style="text-align:center;margin-bottom:56px">
-      <p style="font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:300;font-style:italic;color:var(--muted)">Identify who you are.</p>
-      <div style="width:40px;height:1px;background:var(--gold);margin:16px auto 0;opacity:0.6"></div>
-    </div>
-    <div class="persona-grid">
-      <div class="persona-card">
-        <div class="persona-visual">
-          <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="105">
-            <!-- Person figure -->
-            <circle cx="80" cy="28" r="12" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-            <!-- Body -->
-            <line x1="80" y1="40" x2="80" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Arms raised with question -->
-            <line x1="80" y1="50" x2="55" y2="62" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="80" y1="50" x2="105" y2="62" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Legs -->
-            <line x1="80" y1="72" x2="64" y2="95" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="80" y1="72" x2="96" y2="95" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Question mark above head -->
-            <text x="108" y="45" font-size="22" fill="#c9a84c" font-family="Georgia, serif" opacity="0.7">?</text>
-            <!-- Scattered arrows suggesting confusion -->
-            <path d="M30 55 L20 48 M20 48 L26 48 M20 48 L20 54" stroke="rgba(201,168,76,0.35)" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M35 80 L25 88 M25 88 L31 89 M25 88 L25 82" stroke="rgba(201,168,76,0.35)" stroke-width="1.2" stroke-linecap="round"/>
-            <path d="M130 60 L140 53 M140 53 L134 53 M140 53 L140 59" stroke="rgba(201,168,76,0.35)" stroke-width="1.2" stroke-linecap="round"/>
-            <!-- Ground line -->
-            <line x1="40" y1="100" x2="120" y2="100" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
-          </svg>
-        </div>
-        <span class="persona-num">01</span>
-        <h3 class="persona-title">The Beginner</h3>
-        <p class="persona-label">Seeking direction</p>
-        <p class="persona-problem">You want to get fit but have no idea where to start. You've tried copying routines from Instagram — and ended up confused, injured, or just bored.</p>
-        <p class="persona-promise">You leave knowing exactly where you stand, what your body needs, and why every exercise in your program is there. Fitness becomes a skill, not a guessing game.</p>
-      </div>
-      <div class="persona-card" style="transition-delay:0.15s">
-        <div class="persona-visual">
-          <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="105">
-            <!-- Athletic figure mid-jump / plyometric leap -->
-            <circle cx="80" cy="18" r="12" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-            <!-- Airborne body - explosive posture -->
-            <line x1="80" y1="30" x2="80" y2="58" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Arms driving upward -->
-            <line x1="80" y1="38" x2="58" y2="28" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="80" y1="38" x2="102" y2="28" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Legs tucked for jump -->
-            <line x1="80" y1="58" x2="62" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="80" y1="58" x2="98" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Plateau line — flat dashed line they're breaking through -->
-            <line x1="28" y1="88" x2="100" y2="88" stroke="rgba(201,168,76,0.3)" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
-            <text x="106" y="92" font-size="9" fill="rgba(201,168,76,0.45)" font-family="sans-serif">plateau</text>
-            <!-- Explosive upward burst lines from feet -->
-            <line x1="62" y1="72" x2="50" y2="88" stroke="rgba(201,168,76,0.25)" stroke-width="1" stroke-linecap="round"/>
-            <line x1="98" y1="72" x2="110" y2="88" stroke="rgba(201,168,76,0.25)" stroke-width="1" stroke-linecap="round"/>
-            <!-- Upward trajectory arc -->
-            <path d="M38 90 Q60 40 80 18" stroke="rgba(201,168,76,0.35)" stroke-width="1" stroke-dasharray="3 3" fill="none" stroke-linecap="round"/>
-            <!-- Peak star / target -->
-            <circle cx="80" cy="8" r="3" fill="rgba(201,168,76,0.5)" stroke="#c9a84c" stroke-width="1"/>
-            <!-- Ground -->
-            <line x1="28" y1="100" x2="132" y2="100" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
-          </svg>
-        </div>
-        <span class="persona-num">02</span>
-        <h3 class="persona-title">The Momentum Seeker</h3>
-        <p class="persona-label">Seeking high performance</p>
-        <p class="persona-problem">You already train. You know the basics. But you've hit a ceiling — your lifts have stalled, your athleticism isn't growing, and cookie-cutter programming isn't cutting it anymore. You want more.</p>
-        <p class="persona-promise">You break through the plateau with performance coaching built for your next level — strength, power, plyometrics, and sport-specific conditioning designed to make you genuinely athletic, not just fit.</p>
-      </div>
-      <div class="persona-card" style="transition-delay:0.3s">
-        <div class="persona-visual">
-          <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="105">
-            <!-- Person with pain indicators, hunched slightly -->
-            <circle cx="80" cy="26" r="12" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-            <!-- Slightly hunched body -->
-            <path d="M80 38 Q76 55 78 68" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-            <!-- One arm holding lower back -->
-            <line x1="79" y1="50" x2="60" y2="58" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="79" y1="52" x2="97" y2="44" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Legs stable but careful -->
-            <line x1="78" y1="68" x2="66" y2="96" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="78" y1="68" x2="92" y2="96" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Pain pulse at lower back -->
-            <circle cx="95" cy="56" r="6" stroke="rgba(201,168,76,0.6)" stroke-width="1" fill="none"/>
-            <circle cx="95" cy="56" r="10" stroke="rgba(201,168,76,0.25)" stroke-width="0.8" fill="none"/>
-            <circle cx="95" cy="56" r="14" stroke="rgba(201,168,76,0.1)" stroke-width="0.6" fill="none"/>
-            <!-- Healing arrow emerging -->
-            <path d="M118 95 Q130 75 125 55" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="4 3"/>
-            <path d="M125 55 L119 60 M125 55 L130 62" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Ground -->
-            <line x1="40" y1="100" x2="120" y2="100" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
-          </svg>
-        </div>
-        <span class="persona-num">03</span>
-        <h3 class="persona-title">The Vulnerable</h3>
-        <p class="persona-label">Seeking pain-free movement</p>
-        <p class="persona-problem">Chronic back pain. Stiff joints. Post-physio confusion. A sedentary lifestyle that's slowly taking its toll. You want to move — but you're afraid of making things worse.</p>
-        <p class="persona-promise">You rebuild your foundation from the ground up — stability, mobility, strength. You go from fragile to capable. From pain to movement. For good.</p>
-      </div>
-    </div>
-
-    <!-- Trust strip — after personas -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:2px">
-      <div style="background:var(--surface2);padding:28px 32px">
-        <span style="display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Any Age</span>
-        <span style="display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white)">16 to 70+</span>
-      </div>
-      <div style="background:var(--surface2);padding:28px 32px">
-        <span style="display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Any Goal</span>
-        <span style="display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white)">Yours, specifically.</span>
-      </div>
-      <div style="background:var(--surface2);padding:28px 32px">
-        <span style="display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Any Condition</span>
-        <span style="display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white)">We work around it.</span>
-      </div>
-      <div style="background:var(--surface2);padding:28px 32px;border-left:2px solid var(--gold)">
-        <span style="display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Guaranteed</span>
-        <span style="display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white)">Transformation.</span>
-      </div>
-    </div>
-
-  </div>
-</section>
+<!-- SERVICES -->
 <section id="services" style="background:var(--surface);border-top:1px solid var(--border);padding:120px 60px;">
   <div class="container">
     <div style="margin-bottom:72px">
       <p class="section-eyebrow">What we train</p>
-      <h2>Every goal.<br/><em>One framework.</em></h2>
+      <h2>Specific Goals.<br/><em>Healthspan & Longevity.</em></h2>
     </div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)">
-
       <div class="service-card">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px">
-          <circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <rect x="4" y="14" width="6" height="4" rx="1.5" fill="rgba(201,168,76,0.4)"/>
-          <rect x="22" y="14" width="6" height="4" rx="1.5" fill="rgba(201,168,76,0.4)"/>
-          <rect x="10" y="12" width="12" height="8" rx="2" fill="#c9a84c" opacity="0.8"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px"><circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><rect x="4" y="14" width="6" height="4" rx="1.5" fill="rgba(201,168,76,0.4)"/><rect x="22" y="14" width="6" height="4" rx="1.5" fill="rgba(201,168,76,0.4)"/><rect x="10" y="12" width="12" height="8" rx="2" fill="#c9a84c" opacity="0.8"/></svg>
         <h4 class="service-title">Strength Training</h4>
         <p class="service-body">Progressive overload, compound movements, and periodisation — building functional strength that carries into real life.</p>
       </div>
-
       <div class="service-card">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px">
-          <circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <circle cx="16" cy="16" r="7" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-          <circle cx="16" cy="16" r="3" fill="rgba(201,168,76,0.6)"/>
-          <line x1="16" y1="6" x2="16" y2="9" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="16" y1="23" x2="16" y2="26" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="6" y1="16" x2="9" y2="16" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="23" y1="16" x2="26" y2="16" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px"><circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><circle cx="16" cy="16" r="7" stroke="#c9a84c" stroke-width="1.5" fill="none"/><circle cx="16" cy="16" r="3" fill="rgba(201,168,76,0.6)"/><line x1="16" y1="6" x2="16" y2="9" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="23" x2="16" y2="26" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/><line x1="6" y1="16" x2="9" y2="16" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/><line x1="23" y1="16" x2="26" y2="16" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
         <h4 class="service-title">Hypertrophy</h4>
         <p class="service-body">Science-backed muscle building — training volume, tension, and recovery managed precisely to maximise lean mass gains.</p>
       </div>
-
       <div class="service-card">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px">
-          <circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <path d="M8 20 Q12 10 16 14 Q20 18 24 8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          <circle cx="24" cy="8" r="2.5" fill="rgba(201,168,76,0.6)"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px"><circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><path d="M8 20 Q12 10 16 14 Q20 18 24 8" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/><circle cx="24" cy="8" r="2.5" fill="rgba(201,168,76,0.6)"/></svg>
         <h4 class="service-title">Endurance & Conditioning</h4>
         <p class="service-body">Aerobic base building, energy system development, and cardiovascular conditioning — engineered for your specific output goals.</p>
       </div>
-
       <div class="service-card">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px">
-          <circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <path d="M16 24 L16 14" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M16 14 L10 20" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-          <path d="M16 14 L22 20" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="16" cy="11" r="3" fill="rgba(201,168,76,0.6)"/>
-          <line x1="10" y1="24" x2="22" y2="24" stroke="rgba(201,168,76,0.3)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px"><circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><path d="M16 24 L16 14" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/><path d="M16 14 L10 20" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/><path d="M16 14 L22 20" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="11" r="3" fill="rgba(201,168,76,0.6)"/><line x1="10" y1="24" x2="22" y2="24" stroke="rgba(201,168,76,0.3)" stroke-width="1.5" stroke-linecap="round"/></svg>
         <h4 class="service-title">Plyometrics & Power</h4>
         <p class="service-body">Explosive force development, reactive strength, and sport-specific power — for athletes who need to move fast and land safely.</p>
       </div>
-
       <div class="service-card">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px">
-          <circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <path d="M10 22 Q10 10 16 10 Q22 10 22 22" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <line x1="8" y1="22" x2="24" y2="22" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="16" cy="10" r="2.5" fill="rgba(201,168,76,0.5)"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px"><circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><path d="M10 22 Q10 10 16 10 Q22 10 22 22" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/><line x1="8" y1="22" x2="24" y2="22" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="10" r="2.5" fill="rgba(201,168,76,0.5)"/></svg>
         <h4 class="service-title">Posture Correction</h4>
         <p class="service-body">Assessment-driven correction of postural imbalances — addressing the root cause rather than chasing symptoms. Built for desk workers and sedentary lifestyles.</p>
       </div>
-
       <div class="service-card">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px">
-          <circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <circle cx="20" cy="13" r="4" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-          <circle cx="20" cy="13" r="7" stroke="rgba(201,168,76,0.25)" stroke-width="0.8" fill="none"/>
-          <path d="M8 24 Q10 18 16 18" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="3 2"/>
-          <path d="M16 18 L20 17" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px"><circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><circle cx="20" cy="13" r="4" stroke="#c9a84c" stroke-width="1.5" fill="none"/><circle cx="20" cy="13" r="7" stroke="rgba(201,168,76,0.25)" stroke-width="0.8" fill="none"/><path d="M8 24 Q10 18 16 18" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="3 2"/><path d="M16 18 L20 17" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/></svg>
         <h4 class="service-title">Post-Rehab Coaching</h4>
         <p class="service-body">The bridge between physiotherapy discharge and full training. Guided return-to-movement for post-injury clients — safe, progressive, and evidence-based.</p>
       </div>
-
       <div class="service-card">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px">
-          <circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <path d="M9 20 Q12 14 16 16 Q20 18 23 12" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-          <line x1="8" y1="24" x2="24" y2="24" stroke="rgba(201,168,76,0.3)" stroke-width="1" stroke-linecap="round"/>
-          <circle cx="9" cy="20" r="2" fill="rgba(201,168,76,0.4)"/>
-          <circle cx="16" cy="16" r="2" fill="rgba(201,168,76,0.6)"/>
-          <circle cx="23" cy="12" r="2" fill="#c9a84c"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px"><circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><path d="M9 20 Q12 14 16 16 Q20 18 23 12" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/><line x1="8" y1="24" x2="24" y2="24" stroke="rgba(201,168,76,0.3)" stroke-width="1" stroke-linecap="round"/><circle cx="9" cy="20" r="2" fill="rgba(201,168,76,0.4)"/><circle cx="16" cy="16" r="2" fill="rgba(201,168,76,0.6)"/><circle cx="23" cy="12" r="2" fill="#c9a84c"/></svg>
         <h4 class="service-title">Mobility & Flexibility</h4>
         <p class="service-body">Structured mobility work targeting the kinetic chain — restoring range of motion, reducing stiffness, and building the foundation for pain-free movement.</p>
       </div>
-
       <div class="service-card">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px">
-          <circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/>
-          <circle cx="16" cy="12" r="4" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-          <path d="M10 26 Q10 20 16 20 Q22 20 22 26" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          <line x1="16" y1="16" x2="16" y2="20" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="margin-bottom:16px"><circle cx="16" cy="16" r="14" stroke="rgba(201,168,76,0.25)" stroke-width="1"/><circle cx="16" cy="12" r="4" stroke="#c9a84c" stroke-width="1.5" fill="none"/><path d="M10 26 Q10 20 16 20 Q22 20 22 26" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round"/><line x1="16" y1="16" x2="16" y2="20" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round"/></svg>
         <h4 class="service-title">Weight Management</h4>
         <p class="service-body">Fat loss and body recomposition done right — evidence-based nutrition principles paired with training that preserves muscle and supports long-term metabolic health.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -1154,6 +901,163 @@
       <p style="margin-top:24px;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold)">The Lifelong Athletics standard</p>
     </div>
 
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="method">
+  <div class="container">
+    <div class="method-layout">
+      <div class="method-sticky">
+        <p class="section-eyebrow">The methodology</p>
+        <h2>Our 3 Pillars<br/>of<em> Transformation</em></h2>
+        <p class="section-body" style="margin-top:24px">Most trainers give you workouts. Lifelong Athletics gives you a system — built on exercise science, behavioral psychology, and movement mechanics.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <svg class="pillar-visual" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="20" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+            <path d="M18 28 Q23 18 28 22 Q33 26 38 16" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <circle cx="28" cy="14" r="3" fill="rgba(201,168,76,0.6)"/>
+            <line x1="20" y1="36" x2="36" y2="36" stroke="rgba(201,168,76,0.3)" stroke-width="1" stroke-linecap="round"/>
+            <line x1="20" y1="41" x2="32" y2="41" stroke="rgba(201,168,76,0.2)" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+          <div class="pillar-num">01</div>
+          <h3 class="pillar-title">Education</h3>
+          <p class="pillar-body">You don't just follow a plan — you understand it. Why this exercise. Why this load. Why this sequence. When you understand the science behind your training, you stop needing a trainer to make every decision. That's the goal.</p>
+        </div>
+        <div class="pillar" style="transition-delay:0.15s">
+          <svg class="pillar-visual" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="20" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+            <path d="M28 12 A16 16 0 1 1 12.5 36" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M10 32 L12.5 36 L16 33" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="28" cy="28" r="3" fill="rgba(201,168,76,0.6)"/>
+          </svg>
+          <div class="pillar-num">02</div>
+          <h3 class="pillar-title">Behavior Change</h3>
+          <p class="pillar-body">Information alone doesn't change behavior — and that's why most programs fail. Using proven frameworks from behavioral science, we build "happy habits" — sustainable routines that fit your life rather than fight it. Consistency stops being a willpower battle.</p>
+        </div>
+        <div class="pillar" style="transition-delay:0.3s">
+          <svg class="pillar-visual" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="20" stroke="rgba(201,168,76,0.3)" stroke-width="1"/>
+            <rect x="16" y="38" width="5" height="8" fill="rgba(201,168,76,0.3)" rx="1"/>
+            <rect x="23" y="32" width="5" height="14" fill="rgba(201,168,76,0.5)" rx="1"/>
+            <rect x="30" y="25" width="5" height="21" fill="rgba(201,168,76,0.75)" rx="1"/>
+            <rect x="37" y="18" width="5" height="28" fill="#c9a84c" rx="1"/>
+            <path d="M14 36 L22 18" stroke="rgba(201,168,76,0.4)" stroke-width="1" stroke-linecap="round" stroke-dasharray="2 2"/>
+          </svg>
+          <div class="pillar-num">03</div>
+          <h3 class="pillar-title">Physical Training</h3>
+          <p class="pillar-body">Safe. Effective. Built for your body. Whether you're starting from zero or recovering from injury, every program is grounded in movement science — load management, tissue tolerance, and progressive overload. No guesswork. No shortcuts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section id="who">
+  <div class="container">
+    <div class="who-header">
+      <div>
+        <p class="section-eyebrow">Who this is for</p>
+        <h2>3 kinds of people<br/><em>Programs for each.</em></h2>
+      </div>
+      <p class="section-body">Most fitness programs are built for one imaginary person. Lifelong Athletics starts with who you actually are — and builds a <span style="color:var(--white);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--gold)">personalised coaching program</span> from there.</p>
+    </div>
+    <div style="text-align:center;margin-bottom:56px">
+      <p style="font-family:var(--font-display);font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:300;font-style:italic;color:var(--muted)">Identify who you are.</p>
+      <div style="width:40px;height:1px;background:var(--gold);margin:16px auto 0;opacity:0.6"></div>
+    </div>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-visual">
+          <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="105">
+            <circle cx="80" cy="28" r="12" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+            <line x1="80" y1="40" x2="80" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="80" y1="50" x2="55" y2="62" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="80" y1="50" x2="105" y2="62" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="80" y1="72" x2="64" y2="95" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="80" y1="72" x2="96" y2="95" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="108" y="45" font-size="22" fill="#c9a84c" font-family="Georgia, serif" opacity="0.7">?</text>
+            <path d="M30 55 L20 48 M20 48 L26 48 M20 48 L20 54" stroke="rgba(201,168,76,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M35 80 L25 88 M25 88 L31 89 M25 88 L25 82" stroke="rgba(201,168,76,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M130 60 L140 53 M140 53 L134 53 M140 53 L140 59" stroke="rgba(201,168,76,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="40" y1="100" x2="120" y2="100" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
+          </svg>
+        </div>
+        <span class="persona-num">01</span>
+        <h3 class="persona-title">The Beginner</h3>
+        <p class="persona-label">Seeking direction</p>
+        <p class="persona-problem">You want to get fit but have no idea where to start. You've tried copying routines from Instagram — and ended up confused, injured, or just bored.</p>
+        <p class="persona-promise">You leave knowing exactly where you stand, what your body needs, and why every exercise in your program is there. Fitness becomes a skill, not a guessing game.</p>
+      </div>
+      <div class="persona-card" style="transition-delay:0.15s">
+        <div class="persona-visual">
+          <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="105">
+            <circle cx="80" cy="18" r="12" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+            <line x1="80" y1="30" x2="80" y2="58" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="80" y1="38" x2="58" y2="28" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="80" y1="38" x2="102" y2="28" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="80" y1="58" x2="62" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="80" y1="58" x2="98" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="28" y1="88" x2="100" y2="88" stroke="rgba(201,168,76,0.3)" stroke-width="1.2" stroke-dasharray="5 3" stroke-linecap="round"/>
+            <text x="106" y="92" font-size="9" fill="rgba(201,168,76,0.45)" font-family="sans-serif">plateau</text>
+            <line x1="62" y1="72" x2="50" y2="88" stroke="rgba(201,168,76,0.25)" stroke-width="1" stroke-linecap="round"/>
+            <line x1="98" y1="72" x2="110" y2="88" stroke="rgba(201,168,76,0.25)" stroke-width="1" stroke-linecap="round"/>
+            <path d="M38 90 Q60 40 80 18" stroke="rgba(201,168,76,0.35)" stroke-width="1" stroke-dasharray="3 3" fill="none" stroke-linecap="round"/>
+            <circle cx="80" cy="8" r="3" fill="rgba(201,168,76,0.5)" stroke="#c9a84c" stroke-width="1"/>
+            <line x1="28" y1="100" x2="132" y2="100" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
+          </svg>
+        </div>
+        <span class="persona-num">02</span>
+        <h3 class="persona-title">The Momentum Seeker</h3>
+        <p class="persona-label">Seeking high performance</p>
+        <p class="persona-problem">You already train. You know the basics. But you've hit a ceiling — your lifts have stalled, your athleticism isn't growing, and cookie-cutter programming isn't cutting it anymore. You want more.</p>
+        <p class="persona-promise">You break through the plateau with performance coaching built for your next level — strength, power, plyometrics, and sport-specific conditioning designed to make you genuinely athletic, not just fit.</p>
+      </div>
+      <div class="persona-card" style="transition-delay:0.3s">
+        <div class="persona-visual">
+          <svg viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="105">
+            <circle cx="80" cy="26" r="12" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+            <path d="M80 38 Q76 55 78 68" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <line x1="79" y1="50" x2="60" y2="58" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="79" y1="52" x2="97" y2="44" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="78" y1="68" x2="66" y2="96" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="78" y1="68" x2="92" y2="96" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="95" cy="56" r="6" stroke="rgba(201,168,76,0.6)" stroke-width="1" fill="none"/>
+            <circle cx="95" cy="56" r="10" stroke="rgba(201,168,76,0.25)" stroke-width="0.8" fill="none"/>
+            <circle cx="95" cy="56" r="14" stroke="rgba(201,168,76,0.1)" stroke-width="0.6" fill="none"/>
+            <path d="M118 95 Q130 75 125 55" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="4 3"/>
+            <path d="M125 55 L119 60 M125 55 L130 62" stroke="rgba(201,168,76,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="40" y1="100" x2="120" y2="100" stroke="rgba(201,168,76,0.2)" stroke-width="1"/>
+          </svg>
+        </div>
+        <span class="persona-num">03</span>
+        <h3 class="persona-title">The Vulnerable</h3>
+        <p class="persona-label">Seeking pain-free movement</p>
+        <p class="persona-problem">Chronic back pain. Stiff joints. Post-physio confusion. A sedentary lifestyle that's slowly taking its toll. You want to move — but you're afraid of making things worse.</p>
+        <p class="persona-promise">You rebuild your foundation from the ground up — stability, mobility, strength. You go from fragile to capable. From pain to movement. For good.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:2px">
+      <div style="background:var(--surface2);padding:28px 32px">
+        <span style="display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Any Age</span>
+        <span style="display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white)">3 to 70+</span>
+      </div>
+      <div style="background:var(--surface2);padding:28px 32px">
+        <span style="display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Any Goal</span>
+        <span style="display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white)">Yours specifically.</span>
+      </div>
+      <div style="background:var(--surface2);padding:28px 32px">
+        <span style="display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Any Condition</span>
+        <span style="display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white)">We work around it.</span>
+      </div>
+      <div style="background:var(--surface2);padding:28px 32px;border-left:2px solid var(--gold)">
+        <span style="display:block;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Guaranteed</span>
+        <span style="display:block;font-family:var(--font-display);font-size:1.4rem;font-weight:600;color:var(--white)">Transformation.</span>
+      </div>
+    </div>
   </div>
 </section>
 
